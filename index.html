@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bitwa o krowę</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="preload" as="image" href="cow.jpg">
 	<script src="https://cdn.tailwindcss.com"></script>
 	<style type="text/tailwindcss"></style>
 	<style type="text/css">
@@ -40,7 +42,7 @@
 	<header class="h-screen w-full bg-green-900 text-white relative flex items-center flex-col justify-center text-center px-4 overflow-hidden">
 		<div id="parallax-bg" class="absolute w-full h-screen z-0 bg-center bg-cover bg-no-repeat" style="background-image: url('cow.jpg'); will-change: transform;">
      	</div>
-		<h1 class="text-8xl lg:text-[150px] font-bold pb-4 lg:pb-8 z-10 uppercase header-text-shadow">Bitwa<br> o <br>krowę</h1>
+		<h1 class="text-8xl lg:text-[150px] font-bold pb-4 lg:pb-8 z-10 uppercase header-text-shadow" data-aos="fade-up" data-aos-delay="100" data-aos-duration="500">Bitwa<br> o <br>krowę</h1>
 	</header>
 	<!-- EFEKT PARALAKSY -->
 	<script>
@@ -128,7 +130,7 @@
 	<!-- O WYDARZENIU -->
 	<section id="about" class="w-full bg-gradient-to-b from-[#2f4e1c] to-[#4d7034] text-white px-4 py-20">
 		<div class="lg:mx-32  px-4">
-			<h2 class="text-4xl font-bold text-center pb-8 text-shadow">O wydarzeniu</h2>
+			<h2 class="text-4xl font-bold text-center pb-8 text-shadow" data-aos="fade-up" data-aos-duration="300">O wydarzeniu</h2>
 			<div class="flex items-center space-x-4">
     			<div class="flex-grow border-t border-white"></div>
     			<img src="cow_white.svg" class="h-[50px]">
@@ -136,18 +138,18 @@
 			</div>
 			<br><br>
  			<div id="about-section" class="relative">
- 			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl" id="short-text" id="about_read_more">
+ 			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl" id="short-text" data-aos="fade-left" data-aos-delay="100" data-aos-duration="300">
  				Impreza ta znajduje swoje źródło w dawnych dziejach ziemi świdwińskiej, kiedy to <b class="small-text-shadow">15 lipca 1469 roku</b> miała miejsce <b class="small-text-shadow">krwawa bitwa pomiędzy mieszkańcami Świdwina i Białogardu</b>. Powodem konfliktu był <b class="small-text-shadow">spór o krowę</b> zagarniętą właścicielowi świdwińskiemu przez białogardzian.
  				<br><br>
  				Dokładnie pięćset lat po tym zatargu, w celu upamiętnienia tego historycznego wydarzenia, odbył się <b class="small-text-shadow">pierwszy wielki turniej</b> pod nazwą <b class="small-text-shadow">„Bitwa o Krowę”</b>, z inicjatywy ówczesnego instruktora Powiatowego Ośrodka Kultury – Leona Zdanowicza. Od tego czasu rokrocznie impreza odbywa się naprzemiennie w Świdwinie i Białogardzie, a symboliczne <b class="small-text-shadow">trofeum stanowią pięknie spreparowane krowie rogi</b>, które zdobią siedzibę zwycięskiej drużyny, do czasu kolejnej bitewnej potyczki.
  			</p><br>
  			<div class="hidden" id="full-text-about">
- 			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl">Głównym punktem programu jest <b class="small-text-shadow">turniej wojów rozgrywany pomiędzy drużynami Świdwina i Białogardu</b>. Składa się z kilkunastu konkurencji sprawnościowych, z których wyróżnić warto <b class="small-text-shadow">strzelanie z łuku i kuszy</b> oraz <b class="small-text-shadow">rzut oszczepem i toporem do celu</b>. Całość imprezy, która utrzymana jest w klimacie czasów średniowiecznych, idealnie wkomponowuje się w scenerię zamkową, która dodaje wydarzeniu specyficznego uroku i atrakcyjności. <b class="small-text-shadow">„Bitwa o Krowę”</b> cieszy się dużą popularnością i zainteresowaniem wśród mieszkańców obu miast oraz turystów i co roku przyciąga liczne grono odbiorców.
+ 			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl" >Głównym punktem programu jest <b class="small-text-shadow">turniej wojów rozgrywany pomiędzy drużynami Świdwina i Białogardu</b>. Składa się z kilkunastu konkurencji sprawnościowych, z których wyróżnić warto <b class="small-text-shadow">strzelanie z łuku i kuszy</b> oraz <b class="small-text-shadow">rzut oszczepem i toporem do celu</b>. Całość imprezy, która utrzymana jest w klimacie czasów średniowiecznych, idealnie wkomponowuje się w scenerię zamkową, która dodaje wydarzeniu specyficznego uroku i atrakcyjności. <b class="small-text-shadow">„Bitwa o Krowę”</b> cieszy się dużą popularnością i zainteresowaniem wśród mieszkańców obu miast oraz turystów i co roku przyciąga liczne grono odbiorców.
  			<br><br>
  			Na uwagę zasługuje fakt, iż <b class="small-text-shadow">„Bitwa o Krowę”</b> w <b class="small-text-shadow">2006 roku</b> została <b class="small-text-shadow">nagrodzona</b> nominacją w kategorii <b class="small-text-shadow">produkt turystyczny województwa zachodniopomorskiego</b> przez kapitułę na czele z Marszałkiem Województwa Zachodniopomorskiego prof. Zygmuntem Meyerem. Nagrody przyznano jedynie trzem imprezom w skali województwa, co świadczy o ogromnym wyróżnieniu.</p>
  			</p><br>
  			</div>
- 			<button id="read_about" onclick="toggleAbout()" class="float-right text-white hover:underline inline-block lg:text-2xl sm:text-1xl md:text-2xl">Czytaj więcej</button>
+ 			<a href="#about" class="scroll-link"><button id="read_about" onclick="toggleAbout()" class="float-right text-white hover:underline inline-block lg:text-2xl sm:text-1xl md:text-2xl">Czytaj więcej</button></a>
  			<br><br><br>
  		<p class="text-sm">Źródło: <a href="https://zamek.swidwin.pl/bitwa-o-krowe/" class="text-[#d2e6b0] hover:underline">Świdwiński Ośrodek Kultury Zamek</a></p>
  		</div>
@@ -159,7 +161,7 @@
     fullText.classList.toggle('hidden');
 
     if (button.innerText === 'Czytaj więcej') {
-      button.innerHTML = '<a class="scroll-link" href="#about_read_more">Czytaj mniej</a>';
+      button.innerHTML = 'Czytaj mniej';
     } else {
       button.innerText = 'Czytaj więcej';
     }
@@ -170,19 +172,19 @@
 	<!-- ATRAKCJE -->
 	<section id="attractions" class="w-full bg-white px-4 py-20">
 		<div class="lg:mx-32  px-4">
- 			<h2 class="text-4xl font-bold text-center pb-8 black-text-shadow">Atrakcje</h2>
+ 			<h2 class="text-4xl font-bold text-center pb-8 black-text-shadow" data-aos="fade-up" data-aos-duration="300">Atrakcje</h2>
  			<div class="flex items-center space-x-4">
     			<div class="flex-grow border-t border-black"></div>
     			<img src="cow_black.svg" class="h-[50px]">
     			<div class="flex-grow border-t border-black"></div>
 			</div>
  			<br><br>
- 			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl"> 
+ 			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl" data-aos="fade-left" data-aos-delay="100" data-aos-duration="300"> 
  				Program <b>„Bitwy o Krowę”</b> oferuje widzom co roku <b>szereg ciekawych atrakcji</b>, do których należą między innymi: 
  			</p><br><br>
  		</div>
  		<div class="lg:mx-32 lg:px-4">
- 			<div class="relative w-full lg:h-[500px] md:h-[400px] h-[300px] overflow-hidden rounded-xl shadow-lg select-none">
+ 			<div class="relative w-full lg:h-[500px] md:h-[400px] h-[300px] overflow-hidden rounded-xl shadow-lg select-none" data-aos="fade-up" data-aos-delay="100" data-aos-duration="300">
     <!-- Karuzela -->
     <div id="carousel" class="flex h-full transition-transform duration-500 text-center">
       <!-- Slajd 1 -->
@@ -324,17 +326,17 @@ setInterval(() => {
 	<!-- HISTORIA -->
 	<section id="history" class="w-full px-4 py-20 bg-gradient-to-b from-[#2f4e1c] to-[#4d7034] text-white">
 		<div class="lg:mx-32  px-4">
-			<h2 class="text-4xl font-bold text-center pb-8 text-shadow">Historia</h2>
+			<h2 class="text-4xl font-bold text-center pb-8 text-shadow" data-aos="fade-up" data-aos-duration="300">Historia</h2>
 			<div class="flex items-center space-x-4">
     			<div class="flex-grow border-t border-white"></div>
     			<img src="cow_white.svg" class="h-[50px]">
     			<div class="flex-grow border-t border-white"></div>
 			</div>
 			<br><br>
-			<div class="aspect-w-16 aspect-h-9 flex justify-center">
+			<div class="aspect-w-16 aspect-h-9 flex justify-center" data-aos="fade-right" data-aos-delay="100" data-aos-duration="300">
 			<iframe src="https://www.youtube.com/embed/RhT0Oxv6oPc?si=opC9qFULp6SjzfCj&amp;start=75" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="w-full max-w-4xl aspect-video"></iframe>
 			</div><br><br><br>
-			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl">
+			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl" data-aos="fade-left" data-aos-delay="100" data-aos-duration="300">
 				W 1469 roku pomiędzy <b class="small-text-shadow">brandenburskim Świdwinem</b> a <b class="small-text-shadow">pomorskim Białogardem</b> doszło do <b class="small-text-shadow">bitwy</b>, która była efektem <b class="small-text-shadow">sporu o krowę</b> mieszkańców przygranicznych wiosek.
 				<br><br>
 				Mieszkaniec <b class="small-text-shadow">Niemierzyna</b> pożyczył, na okres zimy, krowę mieszkańcowi ziemi białogardzkiej. Ten jednak, na wiosnę, nie spieszył się z oddaniem własności. <b class="small-text-shadow">Poszkodowany, wraz z sąsiadami wtargnął do zagrody białogardzkiej odebrał swoją krowę i kilka sztuk bydła więcej</b>.
@@ -352,7 +354,7 @@ setInterval(() => {
 				<li><a href="https://vod.tvp.pl/programy,88/wojownicy-czasu-odcinki,389851/odcinek-102,S01E102,1766731" class="text-[#d2e6b0] hover:underline">Wojownicy czasu odc. 102 - "Zatarg o krowę między mieszkańcami Świdwina i Białogardu."</a></li></p>
 			</ul>
 			</div><br><br>
-				<button id="history_read" onclick="toggleHistory()" class="float-right text-white hover:underline inline-block lg:text-2xl sm:text-1xl md:text-2xl">Czytaj więcej</button><br><br><br>
+				<a href="#history" class="scroll-link"><button id="history_read" onclick="toggleHistory()" class="float-right text-white hover:underline inline-block lg:text-2xl sm:text-1xl md:text-2xl">Czytaj więcej</button></a><br><br><br>
 				<p class="text-sm">Źródło: <a href="https://zamek.swidwin.pl/bitwa-o-krowe/" class="text-[#d2e6b0] hover:underline">Świdwiński Ośrodek Kultury Zamek</a></p><br>
 			
 		
@@ -376,7 +378,7 @@ setInterval(() => {
 	<!-- GALERIA -->
 	<section id="gallery" class="w-full px-4 py-20 bg-white">
 		<div class="lg:mx-32 px-4">
- 			<h2 class="text-4xl font-bold text-center pb-8 black-text-shadow">Galeria</h2>
+ 			<h2 class="text-4xl font-bold text-center pb-8 black-text-shadow" data-aos="fade-up" data-aos-duration="300">Galeria</h2>
  			<div class="flex items-center space-x-4">
     			<div class="flex-grow border-t border-black"></div>
     			<img src="cow_black.svg" class="h-[50px]">
@@ -387,22 +389,22 @@ setInterval(() => {
  		</div>
  		<div class="lg:mx-16">
  			<div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 w-full">
-				<div class="w-auto h-40 lg:h-80 md:h-60">
+				<div class="w-auto h-40 lg:h-80 md:h-60" data-aos="fade-left" data-aos-delay="100" data-aos-duration="300">
 					<img src="poglad.jpg" alt="Zdjęcie 1" class="w-full h-full object-cover rounded-lg shadow-md">
 				</div>
-				<div class="w-auto h-40 lg:h-80 md:h-60">
+				<div class="w-auto h-40 lg:h-80 md:h-60" data-aos="fade-left" data-aos-delay="150" data-aos-duration="300">
 					<img src="poglad.jpg" alt="Zdjęcie 2" class="w-full h-full object-cover rounded-lg shadow-md">
 				</div>
-				<div class="w-auto h-40 lg:h-80 md:h-60">
+				<div class="w-auto h-40 lg:h-80 md:h-60" data-aos="fade-left" data-aos-delay="200" data-aos-duration="300">
 					<img src="poglad.jpg" alt="Zdjęcie 3" class="w-full h-full object-cover rounded-lg shadow-md">
 				</div>
-				<div class="w-auto h-40 lg:h-80 md:h-60">
+				<div class="w-auto h-40 lg:h-80 md:h-60" data-aos="fade-left" data-aos-delay="250" lg:data-aos-delay="400" data-aos-duration="300">
 					<img src="poglad.jpg" alt="Zdjęcie 4" class="w-full h-full object-cover rounded-lg shadow-md">
 				</div>
-				<div class="w-auto h-40 lg:h-80 md:h-60">
+				<div class="w-auto h-40 lg:h-80 md:h-60" data-aos="fade-left" data-aos-delay="300" data-aos-duration="300">
 					<img src="poglad.jpg" alt="Zdjęcie 5" class="w-full h-full object-cover rounded-lg shadow-md">
 				</div>
-				<div class="w-auto h-40 lg:h-80 md:h-60">
+				<div class="w-auto h-40 lg:h-80 md:h-60" data-aos="fade-left" data-aos-delay="350" data-aos-duration="300">
 					<img src="poglad.jpg" alt="Zdjęcie 6" class="w-full h-full object-cover rounded-lg shadow-md">
 				</div>
 			</div>
@@ -411,25 +413,25 @@ setInterval(() => {
 			</div>
 	</section>
 	<!-- MIASTA -->
-	<section id="city" class="w-full px-4 py-20 bg-gradient-to-b from-[#2f4e1c] to-[#4d7034] text-white">
-		<h2 class="text-4xl font-bold text-center pb-8 text-shadow">Miasta</h2>
+	<section id="city" class="w-full px-4 py-20 bg-gradient-to-b from-[#2f4e1c] to-[#4d7034] text-white overflow-hidden">
+		<h2 class="text-4xl font-bold text-center pb-8 text-shadow" data-aos="fade-up" data-aos-duration="300">Miasta</h2>
   		<div class="flex items-center space-x-4 lg:mx-32  px-4">
     			<div class="flex-grow border-t border-white"></div>
     			<img src="cow_white.svg" class="h-[50px]">
     			<div class="flex-grow border-t border-white"></div>
 		</div><br>
-		<p class="text-center mb-4 lg:text-2xl sm:text-1xl md:text-2xl"><b>Oficjalne strony miast uczestniczących w bitwie o krowę:</b></p><br>
+		<p class="text-center mb-4 lg:text-2xl sm:text-1xl md:text-2xl" data-aos="fade-left" data-aos-delay="100" data-aos-duration="300"><b>Oficjalne strony miast uczestniczących w bitwie o krowę:</b></p><br>
   		<div class="flex flex-wrap items-center justify-center gap-8">
   		<a href="https://www.swidwin.pl/asp/start,0">
 	    	<div class="text-center">
-	    		<img src="herb_swidwin.png" alt="Herb Świdwina" class="w-16 sm:w-24 mx-auto hover:scale-110 transition-all duration-200 ">
-	    		<p class="mt-2 text-sm sm:text-base hover:scale-110 transition-all duration-200"><b>Urząd Miasta Świdwin</b></p>
+	    		<img src="herb_swidwin.png" alt="Herb Świdwina" class="w-16 sm:w-24 mx-auto hover:scale-110 transition-all duration-200 " data-aos="fade-up" data-aos-delay="100" data-aos-duration="300" data-aos-anchor-placement="top-bottom">
+	    		<p class="mt-2 text-sm sm:text-base hover:scale-110 transition-all duration-200" data-aos="fade-up" data-aos-delay="200" data-aos-duration="300" data-aos-anchor-placement="top-bottom"><b>Urząd Miasta Świdwin</b></p>
 	   		</div>
 	   	</a>
 	   	<a href="https://bialogard.info">
 	    	<div class="text-center">
-	      		<img src="herb_bialogard.png" alt="Herb Białogardu" class="w-16 sm:w-24 mx-auto hover:scale-110 transition-all duration-200 ">
-	      		<p class="mt-2 text-sm sm:text-base hover:scale-110 transition-all duration-200"><b>Miasto Białogard</b></p>
+	      		<img src="herb_bialogard.png" alt="Herb Białogardu" class="w-16 sm:w-24 mx-auto hover:scale-110 transition-all duration-200 " data-aos="fade-up" data-aos-delay="100" data-aos-duration="300" data-aos-anchor-placement="top-bottom">
+	      		<p class="mt-2 text-sm sm:text-base hover:scale-110 transition-all duration-200" data-aos="fade-up" data-aos-delay="200" data-aos-duration="300" data-aos-anchor-placement="top-bottom"><b>Miasto Białogard</b></p>
 	    	</div>
 	    </a>
   		</div>
@@ -465,5 +467,13 @@ setInterval(() => {
     		});
   		});
 	</script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,  // czas animacji
+            once: false,    // animacja przy każdej zmianie widoku
+            mirror: true    // animacja w obie strony (wejście i wyjście)
+        });
+    </script>
 </body>
 </html>
