@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bitwa o krowę</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style type="text/tailwindcss"></style>
+	<style type="text/css">
+		.header-text-shadow {
+  			text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.75);
+		}
+		.text-shadow {
+  			text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.30);
+		}
+		.black-text-shadow {
+  			text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.20);
+		}
+		.small-text-shadow {
+  			text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.20);
+		}
+		nav{
+			padding-top: env(safe-area-inset-top);
+		}
+	</style>
+    <style type="text/css">
+        #parallax-bg {
+            transform: translateZ(0); /* lub w JS dodaj jako fallback */
+        }
+        html, body {
+        	background-color: #2f4e1c;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body id="top" class="m-0">
+	<!-- NAGŁÓWEK -->
+	<header class="h-screen w-full bg-green-900 text-white relative flex items-center flex-col justify-center text-center px-4 overflow-hidden">
+		<div id="parallax-bg" class="absolute w-full h-screen z-0 bg-center bg-cover bg-no-repeat" style="background-image: url('cow.jpg'); will-change: transform;">
+     	</div>
+		<h1 class="text-8xl lg:text-[150px] font-bold pb-4 lg:pb-8 z-10 uppercase header-text-shadow">Bitwa<br> o <br>krowę</h1>
+	</header>
+	<!-- EFEKT PARALAKSY -->
+	<script>
+    	const parallax = document.getElementById('parallax-bg');
+		const img = new Image();
+		img.src = 'cow.jpg';
+		img.onload = () => {
+    		let lastScrollY = window.scrollY;
+    		let ticking = false;
+
+    		function getMaxShift() {
+        		// Zmienna maxShift w zależności od szerokości okna
+        		if (window.innerWidth >= 1024) { // Duże ekrany (np. desktop)
+            		return 110;  // Większy przesuw na dużych ekranach
+        		} else if (window.innerWidth >= 768) { // Średnie ekrany (np. tablet)
+            		return 80;  // Średni przesuw na tabletach
+        		} else { // Małe ekrany (np. telefony)
+            		return 60;  // Mniejszy przesuw na telefonach
+        		}
+    		}
+
+    		function updateParallax() {
+        		// Efekt paralaksy tła
+        		const offset = lastScrollY * 0.4;
+        		parallax.style.transform = `translate3d(0, ${offset}px, 0)`;
+        		ticking = false;
+    		}
+
+    		window.addEventListener('scroll', () => {
+        		lastScrollY = window.scrollY;
+        		if (!ticking) {
+            		requestAnimationFrame(updateParallax);
+            		ticking = true;
+        		}
+    		});
+
+    		// Uruchom od razu
+    		updateParallax();
+		};
+	</script>
+	<!-- NAWIGACJA -->
+	<nav class="bg-[#2f4e1c] text-white sticky top-0 z-50 shadow-md h-[80px]">
+		<div class="container mx-auto px-6 h-[80px] flex items-center justify-between">
+	    <a href="#top" class="text-3xl font-bold text-secondary text-shadow">Bitwa o Krowę</a>
+	    <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
+	      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+	        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+	      </svg>
+	    </button>
+	    <nav class="hidden md:flex md:space-x-4 lg:space-x-6 text-lg">
+	      <a href="#about" class="scroll-link hover:scale-110 text-secondary font-medium transition-all duration-200 rounded-lg text-shadow p-2 ease-in-out">O wydarzeniu</a>
+	      <a href="#attractions" class="scroll-link hover:scale-110 text-secondary font-medium transition-all duration-200 rounded-lg text-shadow p-2 ease-in-out">Atrakcje</a>
+	      <a href="#history" class="scroll-link hover:scale-110 text-secondary font-medium transition-all duration-200 rounded-lg text-shadow p-2 ease-in-out">Historia</a>
+	      <a href="#gallery" class="scroll-link hover:scale-110 text-secondary font-medium transition-all duration-200 rounded-lg text-shadow p-2 ease-in-out">Galeria</a>
+	      <a href="#city" class="scroll-link hover:scale-110 text-secondary font-medium transition-all duration-200 rounded-lg text-shadow p-2 ease-in-out">Miasta</a>
+	    </nav>
+	  </div>
+	  <nav id="menu" class="hidden md:hidden bg-[#2f4e1c] bg-opacity-90 text-white px-6 py-6 space-y-6  text-xl">
+	    <a href="#about" class="scroll-link block text-secondary hover:text-accent font-medium over:scale-110 lg:hover:shadow-lg transition-all duration-200">O wydarzeniu</a>
+	    <a href="#attractions" class="scroll-link block text-secondary hover:text-accent font-medium over:scale-110 lg:hover:shadow-lg transition-all duration-200">Atrakcje</a>
+	    <a href="#history" class="scroll-link block text-secondary hover:text-accent font-medium over:scale-110 lg:hover:shadow-lg transition-all duration-200">Historia</a>
+	    <a href="#gallery" class="scroll-link block text-secondary hover:text-accent font-medium over:scale-110 lg:hover:shadow-lg transition-all duration-200">Galeria</a>
+	    <a href="#city" class="scroll-link block text-secondary hover:text-accent font-medium  over:scale-110 lg:hover:shadow-lg transition-all duration-200">Miasta</a>
+	  </nav>
+	<script>
+  		function toggleMenu() {
+    		const menu = document.getElementById('menu');
+    		menu.classList.toggle('hidden');
+ 		}
+ 		const links = menu.querySelectorAll('a');
+
+	    links.forEach(link => {
+	        link.addEventListener('click', () => {
+	            // Tylko jeśli menu jest widoczne (czyli na mobilce)
+	            if (window.innerWidth < 768) {
+	                menu.classList.add('hidden');
+	                menu.classList.remove('menu-open');
+	            }
+	        });
+	    });
+	</script>
+	</nav>
+</header>
+
+	<!-- O WYDARZENIU -->
+	<section id="about" class="w-full bg-gradient-to-b from-[#2f4e1c] to-[#4d7034] text-white px-4 py-20">
+		<div class="lg:mx-32  px-4">
+			<h2 class="text-4xl font-bold text-center pb-8 text-shadow">O wydarzeniu</h2>
+			<div class="flex items-center space-x-4">
+    			<div class="flex-grow border-t border-white"></div>
+    			<img src="cow_white.svg" class="h-[50px]">
+    			<div class="flex-grow border-t border-white"></div>
+			</div>
+			<br><br>
+ 			<div id="about-section" class="relative">
+ 			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl" id="short-text" id="about_read_more">
+ 				Impreza ta znajduje swoje źródło w dawnych dziejach ziemi świdwińskiej, kiedy to <b class="small-text-shadow">15 lipca 1469 roku</b> miała miejsce <b class="small-text-shadow">krwawa bitwa pomiędzy mieszkańcami Świdwina i Białogardu</b>. Powodem konfliktu był <b class="small-text-shadow">spór o krowę</b> zagarniętą właścicielowi świdwińskiemu przez białogardzian.
+ 				<br><br>
+ 				Dokładnie pięćset lat po tym zatargu, w celu upamiętnienia tego historycznego wydarzenia, odbył się <b class="small-text-shadow">pierwszy wielki turniej</b> pod nazwą <b class="small-text-shadow">„Bitwa o Krowę”</b>, z inicjatywy ówczesnego instruktora Powiatowego Ośrodka Kultury – Leona Zdanowicza. Od tego czasu rokrocznie impreza odbywa się naprzemiennie w Świdwinie i Białogardzie, a symboliczne <b class="small-text-shadow">trofeum stanowią pięknie spreparowane krowie rogi</b>, które zdobią siedzibę zwycięskiej drużyny, do czasu kolejnej bitewnej potyczki.
+ 			</p><br>
+ 			<div class="hidden" id="full-text-about">
+ 			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl">Głównym punktem programu jest <b class="small-text-shadow">turniej wojów rozgrywany pomiędzy drużynami Świdwina i Białogardu</b>. Składa się z kilkunastu konkurencji sprawnościowych, z których wyróżnić warto <b class="small-text-shadow">strzelanie z łuku i kuszy</b> oraz <b class="small-text-shadow">rzut oszczepem i toporem do celu</b>. Całość imprezy, która utrzymana jest w klimacie czasów średniowiecznych, idealnie wkomponowuje się w scenerię zamkową, która dodaje wydarzeniu specyficznego uroku i atrakcyjności. <b class="small-text-shadow">„Bitwa o Krowę”</b> cieszy się dużą popularnością i zainteresowaniem wśród mieszkańców obu miast oraz turystów i co roku przyciąga liczne grono odbiorców.
+ 			<br><br>
+ 			Na uwagę zasługuje fakt, iż <b class="small-text-shadow">„Bitwa o Krowę”</b> w <b class="small-text-shadow">2006 roku</b> została <b class="small-text-shadow">nagrodzona</b> nominacją w kategorii <b class="small-text-shadow">produkt turystyczny województwa zachodniopomorskiego</b> przez kapitułę na czele z Marszałkiem Województwa Zachodniopomorskiego prof. Zygmuntem Meyerem. Nagrody przyznano jedynie trzem imprezom w skali województwa, co świadczy o ogromnym wyróżnieniu.</p>
+ 			</p><br>
+ 			</div>
+ 			<button id="read_about" onclick="toggleAbout()" class="float-right text-white hover:underline inline-block lg:text-2xl sm:text-1xl md:text-2xl">Czytaj więcej</button>
+ 			<br><br><br>
+ 		<p class="text-sm">Źródło: <a href="https://zamek.swidwin.pl/bitwa-o-krowe/" class="text-[#d2e6b0] hover:underline">Świdwiński Ośrodek Kultury Zamek</a></p>
+ 		</div>
+ 		<script>
+  function toggleAbout() {
+    const fullText = document.getElementById('full-text-about');
+    const button = document.getElementById('read_about');
+
+    fullText.classList.toggle('hidden');
+
+    if (button.innerText === 'Czytaj więcej') {
+      button.innerHTML = '<a class="scroll-link" href="#about_read_more">Czytaj mniej</a>';
+    } else {
+      button.innerText = 'Czytaj więcej';
+    }
+  }
+</script>
+		</div>
+	</section>
+	<!-- ATRAKCJE -->
+	<section id="attractions" class="w-full bg-white px-4 py-20">
+		<div class="lg:mx-32  px-4">
+ 			<h2 class="text-4xl font-bold text-center pb-8 black-text-shadow">Atrakcje</h2>
+ 			<div class="flex items-center space-x-4">
+    			<div class="flex-grow border-t border-black"></div>
+    			<img src="cow_black.svg" class="h-[50px]">
+    			<div class="flex-grow border-t border-black"></div>
+			</div>
+ 			<br><br>
+ 			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl"> 
+ 				Program <b>„Bitwy o Krowę”</b> oferuje widzom co roku <b>szereg ciekawych atrakcji</b>, do których należą między innymi: 
+ 			</p><br><br>
+ 		</div>
+ 		<div class="lg:mx-32 lg:px-4">
+ 			<div class="relative w-full lg:h-[500px] md:h-[400px] h-[300px] overflow-hidden rounded-xl shadow-lg select-none">
+    <!-- Karuzela -->
+    <div id="carousel" class="flex h-full transition-transform duration-500 text-center">
+      <!-- Slajd 1 -->
+      <div class="relative w-full flex-shrink-0">
+        <img src="poglad.jpg" class="object-bottom w-full h-full object-cover" />
+        <div class="lg:h-[30%] md:h-[30%] absolute bottom-0 left-0 bg-black bg-opacity-50  text-white lg:p-8 p-4 w-full flex items-center">
+          <h2 class="lg:text-6xl md:text-4xl text-xl font-semibold pb-2 w-full">Ćwiczenia z białą bronią</h2>
+        </div>
+      </div>
+      <!-- Slajd 2 -->
+      <div class="relative w-full flex-shrink-0">
+        <img src="poglad.jpg" class="object-bottom w-full h-full object-cover" />
+        <div class="lg:h-[30%] md:h-[30%] absolute bottom-0 left-0 bg-black bg-opacity-50  text-white lg:p-8 p-4 w-full flex items-center">
+          <h2 class="lg:text-6xl md:text-4xl text-xl font-semibold pb-2 w-full">Turnieje łucznicze</h2>
+        </div>
+      </div>
+      <!-- Slajd 3 -->
+      <div class="relative w-full flex-shrink-0">
+        <img src="poglad.jpg" class="object-bottom w-full h-full object-cover" />
+        <div class="lg:h-[30%] md:h-[30%] absolute bottom-0 left-0 bg-black bg-opacity-50  text-white lg:p-8 p-4 w-full flex items-center">
+          <h2 class="lg:text-6xl md:text-4xl text-xl font-semibold pb-2 w-full">Inscenizacje bitewne</h2>
+        </div>
+      </div>
+      <!-- Slajd 4 -->
+      <div class="relative w-full flex-shrink-0">
+        <img src="poglad.jpg" class="object-bottom w-full h-full object-cover" />
+        <div class="lg:h-[30%] md:h-[30%] absolute bottom-0 left-0 bg-black bg-opacity-50  text-white lg:p-8 p-4 w-full flex items-center">
+          <h2 class="lg:text-6xl md:text-4xl text-xl font-semibold pb-2 w-full">Potyczki rycerskie</h2>
+        </div>
+      </div>
+      <!-- Slajd 5 -->
+      <div class="relative w-full flex-shrink-0">
+        <img src="poglad.jpg" class="object-bottom w-full h-full object-cover" />
+        <div class="lg:h-[30%] md:h-[30%] absolute bottom-0 left-0 bg-black bg-opacity-50  text-white lg:p-8 p-4 w-full flex items-center">
+          <h2 class="lg:text-6xl md:text-4xl text-xl font-semibold pb-2 w-full">Pokazy zabaw plebejskich</h2>
+        </div>
+      </div>
+      <!-- Slajd 6 -->
+      <div class="relative w-full flex-shrink-0">
+        <img src="poglad.jpg" class="object-bottom w-full h-full object-cover" />
+        <div class="lg:h-[30%] md:h-[30%] absolute bottom-0 left-0 bg-black bg-opacity-50  text-white lg:p-8 p-4 w-full flex items-center">
+          <h2 class="lg:text-6xl md:text-4xl text-xl font-semibold pb-2 w-full">Pokazy średniowiecznych tańców</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Przyciski -->
+    <button id="prev" class="absolute left-2 lg:left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-70 rounded-full p-2 lg:p-4 hover:bg-opacity-100 shadow z-10 lg:text-2xl text-white">
+      &#10094;
+    </button>
+    <button id="next" class="absolute right-2 lg:right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-70 rounded-full p-2 lg:p-4 hover:bg-opacity-100 shadow z-10 lg:text-2xl text-white">
+      &#10095;
+    </button>
+  </div>
+
+  <!-- Wskaźniki -->
+  <div id="dots" class="flex justify-center gap-2 mt-6">
+    <button class="dot w-3 h-3 rounded-full bg-gray-400"></button>
+    <button class="dot w-3 h-3 rounded-full bg-gray-400"></button>
+    <button class="dot w-3 h-3 rounded-full bg-gray-400"></button>
+    <button class="dot w-3 h-3 rounded-full bg-gray-400"></button>
+    <button class="dot w-3 h-3 rounded-full bg-gray-400"></button>
+    <button class="dot w-3 h-3 rounded-full bg-gray-400"></button>
+  </div>
+
+  <script>
+    const carousel = document.getElementById('carousel');
+    const totalSlides = carousel.children.length;
+    const dots = document.querySelectorAll('.dot');
+    let index = 0;
+
+    let startX = 0;
+    let endX = 0;
+
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('bg-gray-800', i === index);
+        dot.classList.toggle('bg-gray-400', i !== index);
+      });
+    }
+
+    document.getElementById('next').addEventListener('click', () => {
+      index = (index + 1) % totalSlides;
+      updateCarousel();
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      index = (index - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        index = i;
+        updateCarousel();
+      });
+    });
+
+    // Obsługa swipe
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    carousel.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+    });
+
+    carousel.addEventListener('mouseup', (e) => {
+      endX = e.clientX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const threshold = 50;
+      if (startX - endX > threshold) {
+        index = (index + 1) % totalSlides;
+        updateCarousel();
+      } else if (endX - startX > threshold) {
+        index = (index - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      }
+    }
+
+    updateCarousel(); // Inicjalizacja
+    // Autoplay co 5 sekund
+setInterval(() => {
+  index = (index + 1) % totalSlides;
+  updateCarousel();
+}, 4000); // 5000ms = 5 sekund
+  </script>
+ 	<br><br><p class="text-sm px-4">Źródło: <a href="https://www.pexels.com/pl-pl/zdjecie/brazowy-i-bialy-krowa-chodzenie-po-polu-trawy-2526750/" class="text-[#4d7034] hover:underline">Zdjęcie dodane przez Harry Dona</a></p><br>	
+	</section>
+	<!-- HISTORIA -->
+	<section id="history" class="w-full px-4 py-20 bg-gradient-to-b from-[#2f4e1c] to-[#4d7034] text-white">
+		<div class="lg:mx-32  px-4">
+			<h2 class="text-4xl font-bold text-center pb-8 text-shadow">Historia</h2>
+			<div class="flex items-center space-x-4">
+    			<div class="flex-grow border-t border-white"></div>
+    			<img src="cow_white.svg" class="h-[50px]">
+    			<div class="flex-grow border-t border-white"></div>
+			</div>
+			<br><br>
+			<div class="aspect-w-16 aspect-h-9 flex justify-center">
+			<iframe src="https://www.youtube.com/embed/RhT0Oxv6oPc?si=opC9qFULp6SjzfCj&amp;start=75" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="w-full max-w-4xl aspect-video"></iframe>
+			</div><br><br><br>
+			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl">
+				W 1469 roku pomiędzy <b class="small-text-shadow">brandenburskim Świdwinem</b> a <b class="small-text-shadow">pomorskim Białogardem</b> doszło do <b class="small-text-shadow">bitwy</b>, która była efektem <b class="small-text-shadow">sporu o krowę</b> mieszkańców przygranicznych wiosek.
+				<br><br>
+				Mieszkaniec <b class="small-text-shadow">Niemierzyna</b> pożyczył, na okres zimy, krowę mieszkańcowi ziemi białogardzkiej. Ten jednak, na wiosnę, nie spieszył się z oddaniem własności. <b class="small-text-shadow">Poszkodowany, wraz z sąsiadami wtargnął do zagrody białogardzkiej odebrał swoją krowę i kilka sztuk bydła więcej</b>.
+			</p><br>
+			<div class="hidden" id="full-text-history">
+			<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl" id="history_read_more">
+				W odpowiedzi <b class="small-text-shadow">chłopi białogardzcy napadli Niemierzyno i ukradli znaczną ilość bydła</b>. Na co <b class="small-text-shadow">Jakob von Polenz</b> ówczesny <b class="small-text-shadow">Wójt Świdwina</b> poskarżył się <b class="small-text-shadow">Staroście białogardzkiemu Karstenowi Wopersnow</b>. Ten skargę pozostawił bez odpowiedzi. <br><br>
+				W efekcie za przyzwoleniem władzy świdwińskiej <b class="small-text-shadow">zorganizowano oddział złożony z chłopów i mieszczan</b>, który wtargnął na ziemię białogardzką i zagarnął bydło znajdujące się na pastwiskach.<br><br>
+				Skłoniło to starostę białogardzkiego do <b class="small-text-shadow">zorganizowania wyprawy wojennej przeciwko Świdwinowi</b>. Wieść o szykujących się do wojny białogardzianach dotarła do Świdwina. <b class="small-text-shadow">Jakob von Polenz postanowił wysłać znaczny oddział</b>, pod przywództwem swojego syna <b class="small-text-shadow">Christopha</b>, naprzeciw nieprzyjacielowi.</p><br>
+				<p class="text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl">Świdwinianie i białogardzianie spotkali się <b class="small-text-shadow">pod wsią Łęgi</b> i tam <b class="small-text-shadow">starli w bitwie</b>. Podobno <b class="small-text-shadow">poległo 300 Pomorzan</b>, a <b class="small-text-shadow">100 wzięto do niewoli</b>. <b class="small-text-shadow">Zarekwirowano 50 wozów</b> ze sprzętem wojennym, sztandar mieszczan białogardzkich zawisł w świdwińskim kościele. Według legendy pierścień żelazny ukuty ze strzemion, których używał starosta Wopersnow zawisł nad przejściem w Bramie Kamiennej.</p>
+			</p><br>
+			<p class="mb-6 text-justify mb-4 lg:text-2xl sm:text-1xl md:text-2xl">Więcej informacji na temat bitwy o krowę:</p><br>
+			<ul class="list-disc marker:text-white text-white pl-5 space-y-2 sm:text-1xl lg:text-2xl md:text-2xl">
+				<li><a href="https://historykon.pl/wojna-o-krowe-1469/" class="text-[#d2e6b0] hover:underline">"15 lipca 1469 roku rozpoczęła się wojna o krowę"</a>.</li>
+				<li><a href="https://vod.tvp.pl/programy,88/wojownicy-czasu-odcinki,389851/odcinek-102,S01E102,1766731" class="text-[#d2e6b0] hover:underline">Wojownicy czasu odc. 102 - "Zatarg o krowę między mieszkańcami Świdwina i Białogardu."</a></li></p>
+			</ul>
+			</div><br><br>
+				<button id="history_read" onclick="toggleHistory()" class="float-right text-white hover:underline inline-block lg:text-2xl sm:text-1xl md:text-2xl">Czytaj więcej</button><br><br><br>
+				<p class="text-sm">Źródło: <a href="https://zamek.swidwin.pl/bitwa-o-krowe/" class="text-[#d2e6b0] hover:underline">Świdwiński Ośrodek Kultury Zamek</a></p><br>
+			
+		
+
+			<script>
+				function toggleHistory() {
+    			const fullText = document.getElementById('full-text-history');
+    			const button = document.getElementById('history_read');
+
+    			fullText.classList.toggle('hidden');
+
+    			if (button.innerText === 'Czytaj więcej') {
+        		button.innerText = 'Czytaj mniej';
+    			} else {
+        		button.innerText = 'Czytaj więcej';
+    			}
+				}
+			</script>
+		</div>
+	</section>
+	<!-- GALERIA -->
+	<section id="gallery" class="w-full px-4 py-20 bg-white">
+		<div class="lg:mx-32 px-4">
+ 			<h2 class="text-4xl font-bold text-center pb-8 black-text-shadow">Galeria</h2>
+ 			<div class="flex items-center space-x-4">
+    			<div class="flex-grow border-t border-black"></div>
+    			<img src="cow_black.svg" class="h-[50px]">
+    			<div class="flex-grow border-t border-black"></div>
+			</div>
+
+ 			<br><br>
+ 		</div>
+ 		<div class="lg:mx-16">
+ 			<div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 w-full">
+				<div class="w-auto h-40 lg:h-80 md:h-60">
+					<img src="poglad.jpg" alt="Zdjęcie 1" class="w-full h-full object-cover rounded-lg shadow-md">
+				</div>
+				<div class="w-auto h-40 lg:h-80 md:h-60">
+					<img src="poglad.jpg" alt="Zdjęcie 2" class="w-full h-full object-cover rounded-lg shadow-md">
+				</div>
+				<div class="w-auto h-40 lg:h-80 md:h-60">
+					<img src="poglad.jpg" alt="Zdjęcie 3" class="w-full h-full object-cover rounded-lg shadow-md">
+				</div>
+				<div class="w-auto h-40 lg:h-80 md:h-60">
+					<img src="poglad.jpg" alt="Zdjęcie 4" class="w-full h-full object-cover rounded-lg shadow-md">
+				</div>
+				<div class="w-auto h-40 lg:h-80 md:h-60">
+					<img src="poglad.jpg" alt="Zdjęcie 5" class="w-full h-full object-cover rounded-lg shadow-md">
+				</div>
+				<div class="w-auto h-40 lg:h-80 md:h-60">
+					<img src="poglad.jpg" alt="Zdjęcie 6" class="w-full h-full object-cover rounded-lg shadow-md">
+				</div>
+			</div>
+			<br><br>
+			<p class="text-sm lg:mx-32 px-4">Źródło: <a href="https://www.pexels.com/pl-pl/zdjecie/brazowy-i-bialy-krowa-chodzenie-po-polu-trawy-2526750/" class="text-[#4d7034] hover:underline">Zdjęcie dodane przez Harry Dona</a></p><br>
+			</div>
+	</section>
+	<!-- MIASTA -->
+	<section id="city" class="w-full px-4 py-20 bg-gradient-to-b from-[#2f4e1c] to-[#4d7034] text-white">
+		<h2 class="text-4xl font-bold text-center pb-8 text-shadow">Miasta</h2>
+  		<div class="flex items-center space-x-4 lg:mx-32  px-4">
+    			<div class="flex-grow border-t border-white"></div>
+    			<img src="cow_white.svg" class="h-[50px]">
+    			<div class="flex-grow border-t border-white"></div>
+		</div><br>
+		<p class="text-center mb-4 lg:text-2xl sm:text-1xl md:text-2xl"><b>Oficjalne strony miast uczestniczących w bitwie o krowę:</b></p><br>
+  		<div class="flex flex-wrap items-center justify-center gap-8">
+  		<a href="https://www.swidwin.pl/asp/start,0">
+	    	<div class="text-center">
+	    		<img src="herb_swidwin.png" alt="Herb Świdwina" class="w-16 sm:w-24 mx-auto hover:scale-110 transition-all duration-200 ">
+	    		<p class="mt-2 text-sm sm:text-base hover:scale-110 transition-all duration-200"><b>Urząd Miasta Świdwin</b></p>
+	   		</div>
+	   	</a>
+	   	<a href="https://bialogard.info">
+	    	<div class="text-center">
+	      		<img src="herb_bialogard.png" alt="Herb Białogardu" class="w-16 sm:w-24 mx-auto hover:scale-110 transition-all duration-200 ">
+	      		<p class="mt-2 text-sm sm:text-base hover:scale-110 transition-all duration-200"><b>Miasto Białogard</b></p>
+	    	</div>
+	    </a>
+  		</div>
+	</section>
+	<!-- STOPKA -->
+	<footer class="w-full bg-[#2f4e1c] text-white">
+		<div class="container lg:mx-32 px-4 py-4 w-full">
+   			<p class="text-sm">
+      			Autorka: Paulina Ziółkowska
+    		</p>
+    		
+  </div>
+	</footer>
+	<script>
+  		document.querySelectorAll('a.scroll-link').forEach(link => {
+    		link.addEventListener('click', function(e) {
+      			e.preventDefault();
+      			const targetId = this.getAttribute('href').substring(1);
+      			const target = document.getElementById(targetId);
+
+      			if (target) {
+        			const offset = 68; // wysokość nagłówka
+        			const bodyRect = document.body.getBoundingClientRect().top;
+        			const elementRect = target.getBoundingClientRect().top;
+        			const elementPosition = elementRect - bodyRect;
+        			const offsetPosition = elementPosition - offset;
+
+        			window.scrollTo({
+          				top: offsetPosition,
+          				behavior: 'smooth'
+        			});
+      			}
+    		});
+  		});
+	</script>
+</body>
+</html>
